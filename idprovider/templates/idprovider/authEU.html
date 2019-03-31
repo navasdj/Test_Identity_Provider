@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="uft-8"/>
+    <title>Authorization Request from EU</title>
+  </head>
+  <body>
+  <h1>IdP for testing</h1>
+        <h3>The Relaying Party: <u>{{ ClientID }}</u> is asking retrieve your data: email and full name.<br>
+        Please log in to permit Relaying Party <u>{{ ClientID }}</u> to access your data.<h3>
+        <form name="AuthCode" action="/idprovider/authNZ/" method="post">
+		<div>
+                    <label><b>User:</b></label>
+                    <input type="text" name="email" placeholder="Enter email" required=""> 
+                </div>
+                <div class="password">
+                    <label id="labelp"><b>Pass:</b></label>
+                    <input type="password" required="" placeholder="Enter password" name="password">
+                </div>
+		<input type="hidden" value="{{ AuthRID }}" name="AuthRID" />
+		{% csrf_token %}
+		<br><br>
+                <input type="submit" value="Log in" />
+        </form>
+  </body>
+</html>
+
